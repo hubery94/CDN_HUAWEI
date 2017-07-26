@@ -55,7 +55,6 @@ Population GA::evolvePopulation(Population* pop, int netSize, MCFF3* mc,Location
      */
     
     srand((int)time(0));
-    //for (int i = elitismOffset; i < newPopulation->size(); i++) {
     for (int i = elitismOffset; i < pop_scale_now; i++)
     {
         // Select parents:
@@ -68,7 +67,6 @@ Population GA::evolvePopulation(Population* pop, int netSize, MCFF3* mc,Location
     }
     
     // Mutate population
-    // for (int i = elitismOffset; i < newPopulation->size(); i++) {
     for (int i = elitismOffset; i <pop_scale_now; i++)
     {
         mutate(newPopulation->getLocation(i), iter);
@@ -94,7 +92,6 @@ Population GA::evolvePopulationEasy(Population* pop, int netSize, MCFF3* mc,Loca
      */
     
     srand((int)time(0));
-    //for (int i = elitismOffset; i < newPopulation->size(); i++) {
     for (int i = elitismOffset; i < pop_scale_now; i++)
     {
         // Select parents:
@@ -107,7 +104,6 @@ Population GA::evolvePopulationEasy(Population* pop, int netSize, MCFF3* mc,Loca
     }
     
     // Mutate population
-    // for (int i = elitismOffset; i < newPopulation->size(); i++) {
     for (int i = elitismOffset; i <pop_scale_now; i++)
     {
         mutateEasy(newPopulation->getLocation(i));
@@ -237,10 +233,8 @@ void GA::mutateEasy(Location loc)
 Location GA::tournamentSelection(Population* pop, int netSize, MCFF3* mc, int iter)
 {
     
-    //srand((int)time(0));
     Location bestLocation;
     // Create a tournament population
-    // int c_tournamentSize=std::max(2,tournamentSize-(int)(iter/20));
     // For each place in the tournament get a random candidate location and add it
     double fittness=0;
     int lastId= 0;
@@ -260,7 +254,6 @@ Location GA::tournamentSelection(Population* pop, int netSize, MCFF3* mc, int it
             fittness=pop->all_fitness[randomId];
             em=false;
         }
-        //        i++;
         lastId = randomId;
     }
     
@@ -268,7 +261,6 @@ Location GA::tournamentSelection(Population* pop, int netSize, MCFF3* mc, int it
         bestLocation=pop->getLocation(0);
         fittness=pop->all_fitness[0];
     }
-    //-- return bestLocation;
     return  Location(bestLocation);
     
 }
@@ -276,10 +268,8 @@ Location GA::tournamentSelection(Population* pop, int netSize, MCFF3* mc, int it
 Location GA::tournamentSelectionEasy(Population* pop, int netSize, MCFF3* mc, int iter)
 {
     
-    //srand((int)time(0));
     Location bestLocation;
     // Create a tournament population
-    // int c_tournamentSize=std::max(2,tournamentSize-(int)(iter/20));
     // For each place in the tournament get a random candidate location and add it
     double fittness=0;
     int lastId= 0;
@@ -301,7 +291,6 @@ Location GA::tournamentSelectionEasy(Population* pop, int netSize, MCFF3* mc, in
         }
         
         lastId = randomId;
-        //        i++;
     }
     
     if(em){
@@ -309,7 +298,6 @@ Location GA::tournamentSelectionEasy(Population* pop, int netSize, MCFF3* mc, in
         fittness=pop->all_fitness[0];
         
     }
-    //-- return bestLocation;
     return  Location(bestLocation);
     
 }

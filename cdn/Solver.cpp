@@ -64,23 +64,6 @@ int Solver::get_variable_population_scale(int generation, int average_population
 }
 
 
-        cost=cadidate_cost;
-
-
-
-
-#ifdef PRINT_ITERATION
-        printf("Iteration: %d :%ld \n",i, cost);
-#endif
-        
-    }
-    
-    delete mc;
-    delete genertic;
-    delete server;
-    delete initialPop;
-    return true;
-}
 
 
 /****************************************************
